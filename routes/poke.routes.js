@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const axios = require("axios");
+const requireLogin = require("../middleware/isLoggedIn");
 
+router.use(requireLogin);
 router.get("/", (req, res) => {
   const starters = [
     {

@@ -1,2 +1,9 @@
 <h1>{{appTitle}} 🚀</h1>
+{{#if user}}
+<p>Welcome {{user.username}}</p>
+<button id="logoutButton">Logout</button>
+{{else}}
 <p>Welcome Ironhacker!</p>
+{{/if}}
+
+<script src="/js/logoutButton.js"></script>
