@@ -1,7 +1,14 @@
 <div>
     <h1>Starter Pokemon:</h1>
-    {{#each starters}}
+    <div class="flex">
+{{#each starters}}
         {{> pokemonImage this}}
     {{/each}}
+    {{> pokemonCollectionCreateForm}}
+    {{#if error}}
+    <h1 style="color: red">{{error}}</h1>
+    {{/if}}
+    </div>
+    
     <p><a href="/pokemon/random">Get a random Pokemon!</a></p>
 </div>

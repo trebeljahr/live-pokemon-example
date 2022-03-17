@@ -1,5 +1,9 @@
 <div class="random-pokemon">
     You get: {{ name }}
     {{> pokemonImage src=src name=name}}
+    <form method="post" action="/pokemon/collection/create">
+    <input hidden value="{{name}}" name="pokemonName"/>
+        <button type="submit">+</button>
+    </form>
     <a href="/pokemon/random">Roll again!</a>
 </div>

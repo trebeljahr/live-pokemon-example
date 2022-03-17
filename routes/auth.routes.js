@@ -9,6 +9,7 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
+const PokeCollection = require("../models/PokeCollection.model");
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -68,6 +69,15 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
+        return user;
+      })
+      .then((user) => {
+        return PokeCollection.create({
+          owner: user.username,
+          pokemons: ["squirtle", "charizard"],
+        });
+      })
+      .then(() => {
         res.redirect("/");
       })
       .catch((error) => {

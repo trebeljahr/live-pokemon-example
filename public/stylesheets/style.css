@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 40px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -49,4 +49,11 @@ body {
 
 .main-content {
   padding: 20px;
+}
+
+.flex {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }

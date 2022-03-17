@@ -13,7 +13,7 @@ const path = require("path");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-hbs.registerPartials(path.join(__dirname, "views", "partials"))
+hbs.registerPartials(path.join(__dirname, "views", "partials"));
 
 const app = express();
 
@@ -30,7 +30,8 @@ const index = require("./routes/index.routes");
 app.use("/", index);
 
 app.use("/auth", require("./routes/auth.routes"));
-app.use("/pokemon", require("./routes/poke.routes"))
+app.use("/pokemon", require("./routes/poke.routes"));
+app.use("/pokemon/collection", require("./routes/pokeCollection.routes"));
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
